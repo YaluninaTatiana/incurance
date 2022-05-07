@@ -1,0 +1,8 @@
+df <- read.csv('23.2 insurance.csv')
+full_fit <- lm(charges ~ ., df)
+summary(full_fit)
+fit <- lm(charges ~ age*smoker, df)
+summary(fit)
+anova(full_fit, fit)
+fit_avt <- step(full_fit, direction = "backward")
+summary(fit_avt)
